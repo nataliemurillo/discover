@@ -16,13 +16,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let centerLocation: CLLocationCoordinate2DMake = CLLocationCoordinate2DMake(37.812643, -122.2663986)
+        let mapSpan:MKCoordinateSpan = MKCoordinateSpanMake(00.1, 00.1)
+        let centerLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(37.812643, -122.2663986)
+        let mapRegion:MKCoordinateRegion = MKCoordinateRegionMake(centerLocation, mapSpan)
+        mapViewController.setRegion(mapRegion, animated: true)
         
-        let mapSpan: MKCoordinateSpanMake = MKCoordinateSpan(00.1, 00.1)
+        let annotation = MKPointAnnotation()
         
-         var mapRegion = MKCoordinateRegionMake(centerLocation, mapSpan)
-        
-        self.mapViewController.setRegion(mapRegion, animated: true)
+        annotation.coordinate = centerLocation
+        annotation.title = "AYOOOOO"
+        annotation.subtitle = "it works!!!!!!!"
+        mapViewController.addAnnotation(annotation)
         
     }
 
