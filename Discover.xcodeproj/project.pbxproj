@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8839680793049C5B06CCA6EB /* Pods_Discover.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 030A46A5B01944F1E65A22A1 /* Pods_Discover.framework */; };
 		BF8995B21F1D6446000D9B5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995B11F1D6446000D9B5E /* AppDelegate.swift */; };
 		BF8995B41F1D6446000D9B5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995B31F1D6446000D9B5E /* ViewController.swift */; };
 		BF8995B71F1D6447000D9B5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8995B51F1D6447000D9B5E /* Main.storyboard */; };
 		BF8995B91F1D6447000D9B5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF8995B81F1D6447000D9B5E /* Assets.xcassets */; };
 		BF8995BC1F1D6447000D9B5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8995BA1F1D6447000D9B5E /* LaunchScreen.storyboard */; };
+		BF8995C71F1E7E4E000D9B5E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8995C61F1E7E4E000D9B5E /* CoreLocation.framework */; };
+		BF8995C91F1E8682000D9B5E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8995C81F1E8682000D9B5E /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		030A46A5B01944F1E65A22A1 /* Pods_Discover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Discover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1293F2C7CDA9E0CDE37F9D0 /* Pods-Discover.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Discover.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Discover/Pods-Discover.debug.xcconfig"; sourceTree = "<group>"; };
+		A44FC57969461B514ED32105 /* Pods-Discover.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Discover.release.xcconfig"; path = "Pods/Target Support Files/Pods-Discover/Pods-Discover.release.xcconfig"; sourceTree = "<group>"; };
 		BF8995AE1F1D6446000D9B5E /* Discover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Discover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8995B11F1D6446000D9B5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF8995B31F1D6446000D9B5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +28,8 @@
 		BF8995B81F1D6447000D9B5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF8995BB1F1D6447000D9B5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF8995BD1F1D6447000D9B5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF8995C61F1E7E4E000D9B5E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BF8995C81F1E8682000D9B5E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF8995C91F1E8682000D9B5E /* MapKit.framework in Frameworks */,
+				BF8995C71F1E7E4E000D9B5E /* CoreLocation.framework in Frameworks */,
+				8839680793049C5B06CCA6EB /* Pods_Discover.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		465E4386FB280C9FBC9832E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1293F2C7CDA9E0CDE37F9D0 /* Pods-Discover.debug.xcconfig */,
+				A44FC57969461B514ED32105 /* Pods-Discover.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BF8995A51F1D6446000D9B5E = {
 			isa = PBXGroup;
 			children = (
 				BF8995B01F1D6446000D9B5E /* Discover */,
 				BF8995AF1F1D6446000D9B5E /* Products */,
+				BF8995C51F1E7E4D000D9B5E /* Frameworks */,
+				465E4386FB280C9FBC9832E2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +86,16 @@
 			path = Discover;
 			sourceTree = "<group>";
 		};
+		BF8995C51F1E7E4D000D9B5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF8995C81F1E8682000D9B5E /* MapKit.framework */,
+				BF8995C61F1E7E4E000D9B5E /* CoreLocation.framework */,
+				030A46A5B01944F1E65A22A1 /* Pods_Discover.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF8995C01F1D6447000D9B5E /* Build configuration list for PBXNativeTarget "Discover" */;
 			buildPhases = (
+				72DC3F514A603FB5DC6AA099 /* [CP] Check Pods Manifest.lock */,
 				BF8995AA1F1D6446000D9B5E /* Sources */,
 				BF8995AB1F1D6446000D9B5E /* Frameworks */,
 				BF8995AC1F1D6446000D9B5E /* Resources */,
+				6D6A563199C58DF6995A35D2 /* [CP] Embed Pods Frameworks */,
+				D4BA2E974EAAE04F684079E0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +166,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6D6A563199C58DF6995A35D2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Discover/Pods-Discover-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72DC3F514A603FB5DC6AA099 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D4BA2E974EAAE04F684079E0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Discover/Pods-Discover-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BF8995AA1F1D6446000D9B5E /* Sources */ = {
@@ -259,6 +342,7 @@
 		};
 		BF8995C11F1D6447000D9B5E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1293F2C7CDA9E0CDE37F9D0 /* Pods-Discover.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y75Z9QMBUV;
@@ -272,6 +356,7 @@
 		};
 		BF8995C21F1D6447000D9B5E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A44FC57969461B514ED32105 /* Pods-Discover.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y75Z9QMBUV;
