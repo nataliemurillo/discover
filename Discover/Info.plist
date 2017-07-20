@@ -29,7 +29,7 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Hey! I want to know where you are!</string>
+	<string>Find the coolest pins near you!</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

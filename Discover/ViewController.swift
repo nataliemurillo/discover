@@ -19,16 +19,43 @@ class ViewController: UIViewController {
     var currentLocation:CLLocation?
     var currentLocationIsCorrect = false
     
-// ========== IBActions ========== //
+//// ========== IBActions ========== //
+//    @IBAction func longPress(_ sender: UILongPressGestureRecognizer) {
+//        print("REACHED HERE")
+//        let annotation = MKPointAnnotation()
+//        let touchLocation = (sender as UILongPressGestureRecognizer).location(in: mapViewController)
+//           let coordinate = mapViewController.convert(touchLocation, toCoordinateFrom: mapViewController)
+//        
+//        annotation.coordinate = coordinate
+//        annotation.title = "You Have Made an Annotation"
+//        annotation.subtitle = "PUT SOME RESPECT!!!"
+//        
+//        mapViewController.addAnnotation(annotation)
+//    }
+    
     @IBAction func handleLongPress(_ sender: Any) {
-        let annotation = MKPointAnnotation()
+            let annotation = MKPointAnnotation()
+            let touchLocation = (sender as! UILongPressGestureRecognizer).location(in: mapViewController)
+            let coordinate = mapViewController.convert(touchLocation, toCoordinateFrom: mapViewController)
         
-        annotation.coordinate = mapViewController.centerCoordinate
-        annotation.title = "30 Dexter"
-        annotation.subtitle = "PUT SOME RESPECT!!!"
+            annotation.coordinate = coordinate
+            annotation.title = "You Have Made an Annotation"
+//            annotation.subtitle = ""
         
-        mapViewController.addAnnotation(annotation)
+            mapViewController.addAnnotation(annotation)
     }
+    
+////    @IBAction func handleLongPress(_ sender: Any) {
+//        let annotation = MKPointAnnotation()
+//        let touchLocation = (sender as AnyObject).location(in: mapViewController)
+//        let coordinate = mapViewController.convert(touchLocation, toPointTo: mapViewController)
+//        
+//        annotation.coordinate = coordinate
+//        annotation.title = "You Have Made an Annotation"
+//        annotation.subtitle = "PUT SOME RESPECT!!!"
+//        
+//        mapViewController.addAnnotation(annotation)
+//    }
 
     
     @IBAction func updateButtonTapped(_ sender: Any) {
