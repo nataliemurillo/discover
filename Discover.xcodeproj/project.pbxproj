@@ -15,6 +15,10 @@
 		BF8995BC1F1D6447000D9B5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8995BA1F1D6447000D9B5E /* LaunchScreen.storyboard */; };
 		BF8995C71F1E7E4E000D9B5E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8995C61F1E7E4E000D9B5E /* CoreLocation.framework */; };
 		BF8995C91F1E8682000D9B5E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8995C81F1E8682000D9B5E /* MapKit.framework */; };
+		BF8995CD1F1FD265000D9B5E /* searchpins.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8995CA1F1FD265000D9B5E /* searchpins.png */; };
+		BF8995CE1F1FD266000D9B5E /* searchusername.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8995CB1F1FD265000D9B5E /* searchusername.png */; };
+		BF8995CF1F1FD266000D9B5E /* createaccount.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8995CC1F1FD265000D9B5E /* createaccount.png */; };
+		BF8995D31F200B36000D9B5E /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995D21F200B36000D9B5E /* DrawerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		BF8995BD1F1D6447000D9B5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF8995C61F1E7E4E000D9B5E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BF8995C81F1E8682000D9B5E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BF8995CA1F1FD265000D9B5E /* searchpins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = searchpins.png; path = ../../searchpins.png; sourceTree = "<group>"; };
+		BF8995CB1F1FD265000D9B5E /* searchusername.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = searchusername.png; path = ../../searchusername.png; sourceTree = "<group>"; };
+		BF8995CC1F1FD265000D9B5E /* createaccount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = createaccount.png; path = ../../createaccount.png; sourceTree = "<group>"; };
+		BF8995D21F200B36000D9B5E /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +87,13 @@
 				BF8995B11F1D6446000D9B5E /* AppDelegate.swift */,
 				BF8995B31F1D6446000D9B5E /* ViewController.swift */,
 				BF8995B51F1D6447000D9B5E /* Main.storyboard */,
+				BF8995D21F200B36000D9B5E /* DrawerViewController.swift */,
 				BF8995B81F1D6447000D9B5E /* Assets.xcassets */,
 				BF8995BA1F1D6447000D9B5E /* LaunchScreen.storyboard */,
 				BF8995BD1F1D6447000D9B5E /* Info.plist */,
+				BF8995CA1F1FD265000D9B5E /* searchpins.png */,
+				BF8995CB1F1FD265000D9B5E /* searchusername.png */,
+				BF8995CC1F1FD265000D9B5E /* createaccount.png */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -160,8 +172,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF8995BC1F1D6447000D9B5E /* LaunchScreen.storyboard in Resources */,
+				BF8995CD1F1FD265000D9B5E /* searchpins.png in Resources */,
 				BF8995B91F1D6447000D9B5E /* Assets.xcassets in Resources */,
+				BF8995CF1F1FD266000D9B5E /* createaccount.png in Resources */,
 				BF8995B71F1D6447000D9B5E /* Main.storyboard in Resources */,
+				BF8995CE1F1FD266000D9B5E /* searchusername.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +237,7 @@
 			files = (
 				BF8995B41F1D6446000D9B5E /* ViewController.swift in Sources */,
 				BF8995B21F1D6446000D9B5E /* AppDelegate.swift in Sources */,
+				BF8995D31F200B36000D9B5E /* DrawerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +403,7 @@
 				BF8995C21F1D6447000D9B5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
