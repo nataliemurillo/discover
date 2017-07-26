@@ -9,8 +9,9 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
+class ViewController: UIViewController{
 
-class ViewController: UIViewController {
     
 
 // ========== Variables ========== //
@@ -18,6 +19,7 @@ class ViewController: UIViewController {
     let manager = CLLocationManager()
     var currentLocation:CLLocation?
     var currentLocationIsCorrect = false
+    var handle: AuthStateDidChangeListenerHandle?
     
 //// ========== IBActions ========== //
 //    @IBAction func longPress(_ sender: UILongPressGestureRecognizer) {
@@ -75,7 +77,15 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+//        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+////            self.setTitleDisplay(user)
+////            self.tableView.reloadData()
+//            Auth.auth().removeStateDidChangeListener(handle!)
     
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
     }
     
 // ========== Location Functions ========== //
