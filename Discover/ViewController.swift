@@ -11,8 +11,8 @@ import MapKit
 import CoreLocation
 import Firebase
 class ViewController: UIViewController{
-
     
+var pins = [Pin]()
 
 // ========== Variables ========== //
     @IBOutlet weak var mapViewController: MKMapView!
@@ -21,44 +21,48 @@ class ViewController: UIViewController{
     var currentLocationIsCorrect = false
     var handle: AuthStateDidChangeListenerHandle?
     
-//// ========== IBActions ========== //
-//    @IBAction func longPress(_ sender: UILongPressGestureRecognizer) {
-//        print("REACHED HERE")
-//        let annotation = MKPointAnnotation()
-//        let touchLocation = (sender as UILongPressGestureRecognizer).location(in: mapViewController)
-//           let coordinate = mapViewController.convert(touchLocation, toCoordinateFrom: mapViewController)
-//        
-//        annotation.coordinate = coordinate
-//        annotation.title = "You Have Made an Annotation"
-//        annotation.subtitle = "PUT SOME RESPECT!!!"
-//        
-//        mapViewController.addAnnotation(annotation)
-//    }
-    
-    @IBAction func handleLongPress(_ sender: Any) {
+    func longPressed(sender: UILongPressGestureRecognizer) {
+        print(Auth.auth().currentUser?.email)
+        if(Auth.auth().currentUser != nil) {
+  
+    // put all the code below into a function that gets called only if the user is signed in and if they want to make a pin they must get an alert
+
             let annotation = MKPointAnnotation()
-            let touchLocation = (sender as! UILongPressGestureRecognizer).location(in: mapViewController)
+            let touchLocation = (sender ).location(in: mapViewController)
             let coordinate = mapViewController.convert(touchLocation, toCoordinateFrom: mapViewController)
-        
+            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            let pin1 = Pin(location: location)
+            pins.append(pin1)
+            PinHelper.savePin(pin: pin1)
             annotation.coordinate = coordinate
             annotation.title = "You Have Made an Annotation"
-//            annotation.subtitle = ""
-        
+            annotation.subtitle = "Congrats!"
             mapViewController.addAnnotation(annotation)
-    }
     
-////    @IBAction func handleLongPress(_ sender: Any) {
-//        let annotation = MKPointAnnotation()
-//        let touchLocation = (sender as AnyObject).location(in: mapViewController)
-//        let coordinate = mapViewController.convert(touchLocation, toPointTo: mapViewController)
-//        
-//        annotation.coordinate = coordinate
-//        annotation.title = "You Have Made an Annotation"
-//        annotation.subtitle = "PUT SOME RESPECT!!!"
-//        
-//        mapViewController.addAnnotation(annotation)
-//    }
 
+        } else {
+            print("Sorry you must Sign In if you want to make a pin")
+        }
+        
+    }
+ // make another alert for anonymous users to sign in if they want to create a pin 
+    func createPinRequestAlert (title: String, message:String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        //CREATING ONE BUTTON
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            print("YES")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            print("NO")
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     
     @IBAction func updateButtonTapped(_ sender: Any) {
         currentLocationIsCorrect = false
@@ -67,6 +71,8 @@ class ViewController: UIViewController{
     
 // ========== View Lifecycle ========== //
     override func viewDidLoad() {
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.longPressed(sender:)))
+        self.view.addGestureRecognizer(longPressRecognizer)
         super.viewDidLoad()
         
         manager.delegate = self
@@ -77,11 +83,7 @@ class ViewController: UIViewController{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-////            self.setTitleDisplay(user)
-////            self.tableView.reloadData()
-//            Auth.auth().removeStateDidChangeListener(handle!)
-    
+        createPinRequestAlert(title: "Are You Sure You Want To Create A Pin Here?", message: "")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -109,7 +111,6 @@ class ViewController: UIViewController{
         }
         
     }
-    
 }
 
 extension ViewController: CLLocationManagerDelegate {

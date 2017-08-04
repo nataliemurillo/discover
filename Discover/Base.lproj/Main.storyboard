@@ -25,18 +25,16 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hZU-SW-dqg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="282"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="edq-WP-aAr" appends="YES" id="V1u-ZT-BJY"/>
-                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jh0-aT-hJx">
-                                <rect key="frame" x="258" y="210" width="101" height="30"/>
+                                <rect key="frame" x="258" y="124.5" width="101" height="33"/>
+                                <color key="backgroundColor" red="1" green="0.41568627450000001" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="101" id="oyW-eo-AEe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="RE-CENTER">
-                                    <color key="titleColor" red="0.49803921569999998" green="0.55294117649999996" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.38431372549019605" green="0.52941176470588236" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="updateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1pH-x0-SiU"/>
@@ -45,12 +43,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jh0-aT-hJx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="210" id="1RY-FS-Adk"/>
                             <constraint firstItem="hZU-SW-dqg" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="7yM-bF-MsK"/>
                             <constraint firstItem="hZU-SW-dqg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="AMq-4e-SXm"/>
                             <constraint firstItem="jh0-aT-hJx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="242" id="OGx-Vu-nLD"/>
                             <constraint firstItem="hZU-SW-dqg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="bMc-zQ-kDM"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jh0-aT-hJx" secondAttribute="bottom" constant="42" id="d45-xd-BE6"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jh0-aT-hJx" secondAttribute="bottom" constant="124.5" id="d11-1g-vyh"/>
                             <constraint firstAttribute="trailing" secondItem="hZU-SW-dqg" secondAttribute="trailing" id="kNa-jT-oZn"/>
                         </constraints>
                     </view>
@@ -59,13 +56,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="100" minimumPressDuration="0.5" id="edq-WP-aAr">
-                    <connections>
-                        <action selector="handleLongPress:" destination="BYZ-38-t0r" id="gFo-hs-z4d"/>
-                    </connections>
-                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="100" minimumPressDuration="0.5" id="edq-WP-aAr"/>
             </objects>
-            <point key="canvasLocation" x="1620" y="34"/>
+            <point key="canvasLocation" x="1620" y="463"/>
         </scene>
         <!--Drawer View Controller-->
         <scene sceneID="81K-Yu-B48">
@@ -109,25 +102,35 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ef-tY-gs1">
-                                <rect key="frame" x="164" y="262" width="46" height="30"/>
+                                <rect key="frame" x="47" y="284" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Login ">
-                                    <color key="titleColor" red="0.49803921569999998" green="0.55294117649999996" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.38431372549019605" green="0.52941176470588236" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="bTa-7k-9fH" kind="show" id="dsd-Ni-NXj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGh-tj-sLG">
-                                <rect key="frame" x="146" y="292" width="83" height="30"/>
+                                <rect key="frame" x="146" y="284" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="0.49803921569999998" green="0.55294117649999996" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.38431372549019605" green="0.52941176470588236" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="xt3-jB-h8y" kind="show" id="Nzr-qR-etO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKm-ud-7Ko">
+                                <rect key="frame" x="284" y="284" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" red="0.38431372549999998" green="0.52941176469999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOut:" destination="PRj-86-Rfj" eventType="touchUpInside" id="ekW-q9-IOZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -141,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tSQ-8g-exf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1620" y="353.52323838080963"/>
+            <point key="canvasLocation" x="1620" y="-79.160419790104953"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Esx-t4-1Sf">
@@ -155,7 +158,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="322"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="create a password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Dq-aa-Qja">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter a password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Dq-aa-Qja">
                                 <rect key="frame" x="16" y="184" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.49803921569999998" green="0.55294117649999996" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -173,7 +176,7 @@
                                 <rect key="frame" x="248" y="272" width="111" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create Account ">
-                                    <color key="titleColor" red="0.49803921569999998" green="0.55294117649999996" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.38431372549019605" green="0.52941176470588236" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="createUsernameWith_sender:" destination="xt3-jB-h8y" eventType="touchUpInside" id="A4v-tI-6qU"/>
@@ -210,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s2U-I2-kVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1620" y="810"/>
+            <point key="canvasLocation" x="2414" y="462"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Sod-Lm-yj2">
@@ -238,7 +241,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.49803921569999998" green="0.55294117649999996" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZc-bY-IQL">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZc-bY-IQL">
                                 <rect key="frame" x="16" y="146" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.49803921569999998" green="0.55294117649999996" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -249,7 +252,7 @@
                                 <rect key="frame" x="321" y="272" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.49803921569999998" green="0.55294117649999996" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.38431372549019605" green="0.52941176470588236" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="Login:" destination="bTa-7k-9fH" eventType="touchUpInside" id="7ca-kk-aDz"/>
@@ -272,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P3Q-LJ-0oE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2354" y="354"/>
+            <point key="canvasLocation" x="2414" y="-79"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NzZ-dI-nyh">

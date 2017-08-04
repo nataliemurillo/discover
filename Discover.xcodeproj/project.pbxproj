@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8839680793049C5B06CCA6EB /* Pods_Discover.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 030A46A5B01944F1E65A22A1 /* Pods_Discover.framework */; };
+		BF2F3BF61F2A601F002872D4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F3BF51F2A601F002872D4 /* User.swift */; };
+		BF2F3BF81F2F93C7002872D4 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F3BF71F2F93C7002872D4 /* Pin.swift */; };
+		BF590DA01F34ECDE00B6333F /* PinHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF590D9F1F34ECDE00B6333F /* PinHelper.swift */; };
 		BF62B5561F216C7E00BC2E2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF62B5551F216C7E00BC2E2A /* GoogleService-Info.plist */; };
 		BF62B55A1F229FB100BC2E2A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF62B5591F229FB100BC2E2A /* LoginViewController.swift */; };
 		BF8995B21F1D6446000D9B5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995B11F1D6446000D9B5E /* AppDelegate.swift */; };
@@ -24,6 +27,9 @@
 		030A46A5B01944F1E65A22A1 /* Pods_Discover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Discover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1293F2C7CDA9E0CDE37F9D0 /* Pods-Discover.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Discover.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Discover/Pods-Discover.debug.xcconfig"; sourceTree = "<group>"; };
 		A44FC57969461B514ED32105 /* Pods-Discover.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Discover.release.xcconfig"; path = "Pods/Target Support Files/Pods-Discover/Pods-Discover.release.xcconfig"; sourceTree = "<group>"; };
+		BF2F3BF51F2A601F002872D4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BF2F3BF71F2F93C7002872D4 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		BF590D9F1F34ECDE00B6333F /* PinHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinHelper.swift; sourceTree = "<group>"; };
 		BF62B5551F216C7E00BC2E2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF62B5591F229FB100BC2E2A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BF8995AE1F1D6446000D9B5E /* Discover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Discover.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,11 +92,14 @@
 				BF8995B31F1D6446000D9B5E /* ViewController.swift */,
 				BF8995B51F1D6447000D9B5E /* Main.storyboard */,
 				BF8995D21F200B36000D9B5E /* DrawerViewController.swift */,
+				BF2F3BF51F2A601F002872D4 /* User.swift */,
 				BF62B5591F229FB100BC2E2A /* LoginViewController.swift */,
 				BF8995B81F1D6447000D9B5E /* Assets.xcassets */,
 				BF8995BA1F1D6447000D9B5E /* LaunchScreen.storyboard */,
 				BF62B5551F216C7E00BC2E2A /* GoogleService-Info.plist */,
 				BF8995BD1F1D6447000D9B5E /* Info.plist */,
+				BF2F3BF71F2F93C7002872D4 /* Pin.swift */,
+				BF590D9F1F34ECDE00B6333F /* PinHelper.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -231,8 +240,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF62B55A1F229FB100BC2E2A /* LoginViewController.swift in Sources */,
+				BF590DA01F34ECDE00B6333F /* PinHelper.swift in Sources */,
 				BF8995B41F1D6446000D9B5E /* ViewController.swift in Sources */,
+				BF2F3BF81F2F93C7002872D4 /* Pin.swift in Sources */,
 				BF8995B21F1D6446000D9B5E /* AppDelegate.swift in Sources */,
+				BF2F3BF61F2A601F002872D4 /* User.swift in Sources */,
 				BF8995D31F200B36000D9B5E /* DrawerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
