@@ -24,44 +24,54 @@ var pins = [Pin]()
     func longPressed(sender: UILongPressGestureRecognizer) {
         print(Auth.auth().currentUser?.email)
         if(Auth.auth().currentUser != nil) {
-  
-    // put all the code below into a function that gets called only if the user is signed in and if they want to make a pin they must get an alert
-
-            let annotation = MKPointAnnotation()
-            let touchLocation = (sender ).location(in: mapViewController)
-            let coordinate = mapViewController.convert(touchLocation, toCoordinateFrom: mapViewController)
-            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-            let pin1 = Pin(location: location)
-            pins.append(pin1)
-            PinHelper.savePin(pin: pin1)
-            annotation.coordinate = coordinate
-            annotation.title = "You Have Made an Annotation"
-            annotation.subtitle = "Congrats!"
-            mapViewController.addAnnotation(annotation)
-    
-
+            createPinRequestAlert(title: "Are You Sure You Want To Create A Pin Here?", message: "")
+ 
         } else {
-            print("Sorry you must Sign In if you want to make a pin")
-        }
+            let alertController = UIAlertController(title: nil, message:
+                "Sorry! You must sign in if you want to create a pin!", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil
+        )}
+
+    }
+    
+    func createPin(sender: UILongPressGestureRecognizer) {
+        let annotation = MKPointAnnotation()
+        let touchLocation = (sender ).location(in: mapViewController)
+        let coordinate = mapViewController.convert(touchLocation, toCoordinateFrom: mapViewController)
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        let pin1 = Pin(location: location)
+        pins.append(pin1)
+        PinHelper.savePin(pin: pin1)
+        annotation.coordinate = coordinate
+        annotation.title = "You Have Made an Annotation"
+        annotation.subtitle = "Congrats!"
+        mapViewController.addAnnotation(annotation)
         
     }
- // make another alert for anonymous users to sign in if they want to create a pin 
+    
+    
+    // make another alert for anonymous users to sign in if they want to create a pin!!!
+    
     func createPinRequestAlert (title: String, message:String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
+        if(Auth.auth().currentUser != nil) {
+            let alertController = UIAlertController(title: nil, message:
+                "Are You Sure You Want To Create A Pin Here?", preferredStyle: UIAlertControllerStyle.alert)
         //CREATING ONE BUTTON
-        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil)
+        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
+            alertController.dismiss(animated: true, completion: nil)
             print("YES")
         }))
         
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil)
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
+            alertController.dismiss(animated: true, completion: nil)
             print("NO")
         }))
         
-        self.present(alert, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
         
+        }
     }
     
     @IBAction func updateButtonTapped(_ sender: Any) {
@@ -83,7 +93,7 @@ var pins = [Pin]()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        createPinRequestAlert(title: "Are You Sure You Want To Create A Pin Here?", message: "")
+    
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -108,11 +118,9 @@ var pins = [Pin]()
             mapViewController.setRegion(mapRegion, animated: true)
             
             self.mapViewController.showsUserLocation = true
+            }
         }
-        
     }
-}
-
 extension ViewController: CLLocationManagerDelegate {
     
 }
