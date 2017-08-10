@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-//typealias FIRUser = FirebaseAuth.User
+
 
 class User:  NSObject {
     let uid: String
@@ -19,10 +19,10 @@ class User:  NSObject {
     
     static var current: User {
     
-    guard let currentUser = _current else{
-        fatalError("error: current user doesn't exist")
-    }
-    return currentUser
+        guard let currentUser = _current else{
+            fatalError("error: current user doesn't exist")
+        }
+        return currentUser
     }
     init(uid:String, username: String) {
         self.uid = uid
@@ -36,6 +36,13 @@ class User:  NSObject {
         self.uid = snapshot.key
         self.username = username
     }
+    
+    func userDict() -> [String: Any] {
+        var dict = [String : Any]()
+        dict["username"] = self.username
+        return dict
+    }
+    
     
     class func isUserLoggedIn() -> Bool {
         return Auth.auth().currentUser != nil

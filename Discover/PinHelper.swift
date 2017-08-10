@@ -18,6 +18,9 @@ struct PinHelper {
     
     static func savePin(pin: Pin) {
         geofire?.setLocation(pin.location, forKey: pin.pid)
+        let pinRef = ref.child("pins").child(pin.pid)
+        
+        pinRef.setValue(pin.getDict())
     }
     static func getUniquePid() -> String {
         let pinRef = ref.child("pins")

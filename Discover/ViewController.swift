@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import Firebase
+import Foundation
 class ViewController: UIViewController{
     
 var pins = [Pin]()
@@ -22,9 +23,13 @@ var pins = [Pin]()
     var handle: AuthStateDidChangeListenerHandle?
     
     func longPressed(sender: UILongPressGestureRecognizer) {
-        print(Auth.auth().currentUser?.email)
+        //print(Auth.auth().currentUser?.email)
+        let touchLocation = sender.location(in: mapViewController)
+        let coordinate = mapViewController.convert(touchLocation, toCoordinateFrom: mapViewController)
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         if(Auth.auth().currentUser != nil) {
-            createPinRequestAlert(title: "Are You Sure You Want To Create A Pin Here?", message: "")
+            //createPin(sender: sender)
+            createPinRequestAlert(title: "Are You Sure You Want To Create A Pin Here?", message: "", location: location)
  
         } else {
             let alertController = UIAlertController(title: nil, message:
@@ -33,44 +38,57 @@ var pins = [Pin]()
             
             self.present(alertController, animated: true, completion: nil
         )}
+    }
+    
+    func createPin(location: CLLocation) {
+        let annotation = CustomPointAnnotation()
+        let pin1 = Pin(location: location)
+        PinHelper.savePin(pin: pin1)
+        annotation.coordinate = location.coordinate
+        annotation.title = "You Have Made an Annotation"
+        annotation.subtitle = "Congrats!"
+        annotation.pin = pin1
+        self.mapViewController.addAnnotation(annotation)
 
     }
     
-    func createPin(sender: UILongPressGestureRecognizer) {
-        let annotation = MKPointAnnotation()
-        let touchLocation = (sender ).location(in: mapViewController)
-        let coordinate = mapViewController.convert(touchLocation, toCoordinateFrom: mapViewController)
-        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        let pin1 = Pin(location: location)
-        pins.append(pin1)
-        PinHelper.savePin(pin: pin1)
-        annotation.coordinate = coordinate
-        annotation.title = "You Have Made an Annotation"
-        annotation.subtitle = "Congrats!"
-        mapViewController.addAnnotation(annotation)
-        
-    }
-    
-    
     // make another alert for anonymous users to sign in if they want to create a pin!!!
     
-    func createPinRequestAlert (title: String, message:String) {
+    func createPinRequestAlert (title: String, message:String, location: CLLocation) {
         if(Auth.auth().currentUser != nil) {
             let alertController = UIAlertController(title: nil, message:
                 "Are You Sure You Want To Create A Pin Here?", preferredStyle: UIAlertControllerStyle.alert)
-        //CREATING ONE BUTTON
-        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
-            alertController.dismiss(animated: true, completion: nil)
-            print("YES")
-        }))
+            //CREATING ONE BUTTON
+            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
+                //create and add pin here
+                //alertController.dismiss(animated: true, completion: nil)
+                print("YES")
+                self.createPin(location: location)
+                
+            }))
+
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
+                alertController.dismiss(animated: true, completion: nil)
+                print("NO")
+                
+            }))
+            
+            self.present(alertController, animated: true, completion: nil)
         
-        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
-            alertController.dismiss(animated: true, completion: nil)
-            print("NO")
-        }))
+        } else {
+            
+        }
+    }
+// delete an annotation 
+    func deletePins(sender: UILongPressGestureRecognizer) {
+        if (Auth.auth().currentUser != nil) {
+        let annotations = self.mapViewController.annotations
+        for _annotation in annotations {
+            self.mapViewController.removeAnnotation(_annotation)
+        }
         
-        self.present(alertController, animated: true, completion: nil)
-        
+        } else {
+            
         }
     }
     
@@ -84,7 +102,7 @@ var pins = [Pin]()
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.longPressed(sender:)))
         self.view.addGestureRecognizer(longPressRecognizer)
         super.viewDidLoad()
-        
+        mapViewController.delegate = self
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
@@ -123,4 +141,10 @@ var pins = [Pin]()
     }
 extension ViewController: CLLocationManagerDelegate {
     
+}
+
+extension ViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print("Hey that's an annotation view")
+    }
 }
