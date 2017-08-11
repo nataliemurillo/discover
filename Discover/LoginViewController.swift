@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     
 //login
     @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
     }
   
     @IBAction func login(_ sender: Any) {
-        if let email = username.text, let password = password.text {
+        if let email = username.text, let password = passwordField.text {
             Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                 
                 if error != nil {
@@ -75,13 +75,12 @@ class LoginViewController: UIViewController {
     
     @IBAction func signUp(_ sender: UIButton) {
         if let email = emailTextField.text, let password = passwordTextField.text, let username = usernameTextField.text {
-            Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+            Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
                 
                 if error != nil {
                     print(error)
                 } else {
-        
-                    
+                  
                     let uid: String = user!.uid
                     UserService.createUser(user!, username: username, completion: { (FBuser) in
                         if let FBuser = FBuser {

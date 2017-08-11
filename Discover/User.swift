@@ -51,5 +51,12 @@ class User:  NSObject {
     class func setCurrent(_current: User){
         self._current = _current
     }
+    
+    class func doesUserExist()->Bool {
+        if let user = _current {
+            return true
+        }
+        return false
+    }
    
 }

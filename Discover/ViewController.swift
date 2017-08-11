@@ -47,6 +47,7 @@ var pins = [Pin]()
         annotation.coordinate = location.coordinate
         annotation.title = "You Have Made an Annotation"
         annotation.subtitle = "Congrats!"
+        
         annotation.pin = pin1
         self.mapViewController.addAnnotation(annotation)
 
@@ -74,18 +75,6 @@ var pins = [Pin]()
             }))
             
             self.present(alertController, animated: true, completion: nil)
-        
-        } else {
-            
-        }
-    }
-// delete an annotation 
-    func deletePins(sender: UILongPressGestureRecognizer) {
-        if (Auth.auth().currentUser != nil) {
-        let annotations = self.mapViewController.annotations
-        for _annotation in annotations {
-            self.mapViewController.removeAnnotation(_annotation)
-        }
         
         } else {
             
@@ -146,5 +135,62 @@ extension ViewController: CLLocationManagerDelegate {
 extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         print("Hey that's an annotation view")
+        view.setSelected(true, animated: true)
     }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        PinHelper.startPinObserver(for:mapView.region) { (pin) in
+            let annotation = CustomPointAnnotation()
+            
+            annotation.coordinate = pin.location.coordinate
+            annotation.pin = pin
+            annotation.title = "Hey, you just made an annotation"
+            mapView.addAnnotation(annotation)
+            
+        }
+    }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        let identifier = "MyCustomAnnotation"
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.canShowCallout = true
+        }
+        
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 65, height: 65))
+        button.setTitleColor(UIColor.red, for: .normal)
+        
+        button.setTitle("delete", for: .normal)
+        annotationView?.rightCalloutAccessoryView = button
+//        configureDetailView(annotationView: annotationView!)
+        return annotationView
+    }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let customPointAnnotation = view.annotation as! CustomPointAnnotation
+        if let pin = customPointAnnotation.pin {
+            PinHelper.deletePin(pid: pin.pid)
+            mapView.removeAnnotation(customPointAnnotation)
+        }
+    }
+    
+    func configureDetailView(annotationView: MKAnnotationView) {
+        let width = 65
+        let height = 65
+        
+        let snapshotView = UIView()
+        let views = ["snapshotView": snapshotView]
+        snapshotView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[snapshotView(44)]", options: [], metrics: nil, views: views))
+        snapshotView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[snapshotView(44)]", options: [], metrics: nil, views: views))
+        let buttonView = UIButton(frame: CGRect(x:0, y: 0, width: width, height: height))
+        buttonView.setTitle("delete", for: .normal)
+        buttonView.setTitleColor(UIColor.blue, for: .normal)
+        snapshotView.addSubview(buttonView)
+        annotationView.detailCalloutAccessoryView = snapshotView
+    }
+    
 }

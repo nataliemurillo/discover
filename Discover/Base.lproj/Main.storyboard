@@ -276,7 +276,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="password" destination="KPB-mS-nn3" id="LdX-7O-qi3"/>
+                        <outlet property="passwordField" destination="KPB-mS-nn3" id="omD-J7-wUX"/>
                         <outlet property="username" destination="HZc-bY-IQL" id="C0d-wx-Bs9"/>
                     </connections>
                 </viewController>

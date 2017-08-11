@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Discover/ViewController.swift"
-            timestampString = "524003326.323711"
+            filePath = "Discover/DrawerViewController.swift"
+            timestampString = "524088926.210741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "mapView(_:didSelect:)"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "signOut(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
